@@ -21,6 +21,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "C:/Users/Aldar/IdeaProjects/praktika",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -34,7 +35,7 @@
       <updated>1686916435439</updated>
       <workItem from="1686916437620" duration="59000" />
       <workItem from="1687092483892" duration="72000" />
-      <workItem from="1687095169484" duration="635000" />
+      <workItem from="1687095169484" duration="952000" />
     </task>
     <servers />
   </component>
