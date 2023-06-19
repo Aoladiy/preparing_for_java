@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table th:each="list:${list}">
+    <tr th:text="${list.id}"></tr>
+    <tr th:text="${list.chisl1}"></tr>
+    <tr th:text="${list.znak}"></tr>
+    <tr th:text="${list.chisl2}"></tr>
+    <tr><p>=</p></tr>
+    <tr th:text="${list.rezult}"></tr>
+</table>
+<form id="myForm" th:action="@{/welcome}" th:object="${entityMath1}" th:method="post">
+    <input id="chisl1" th:field="*{chisl1}" type="number">
+    <select id="znak" th:field="*{znak}">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input id="chisl2" th:field="*{chisl2}" type="number">
+    <input id="schet" class="schet" th:field="*{rezult}" type="hidden">
+    <input type="submit">
+</form>
+<script>
+    var myForm = document.getElementById("myForm");
+    var ch1 = document.getElementById("chisl1");
+    var ch2 = document.getElementById("chisl2");
+    var znak = document.getElementById("znak");
+    var rezul = document.querySelector(".schet");
+
+    myForm.addEventListener("submit", function(event) {
+        event.preventDefault(); // Отменяет отправку формы
+
+        var rez;
+        if (znak.options[znak.selectedIndex].value === "+") {
+            rez = parseFloat(ch1.value) + parseFloat(ch2.value);
+        }
+        if (znak.options[znak.selectedIndex].value === "-") {
+            rez = parseFloat(ch1.value) - parseFloat(ch2.value);
+        }
+        if (znak.options[znak.selectedIndex].value === "*") {
+            rez = parseFloat(ch1.value) * parseFloat(ch2.value);
+        }
+        if (znak.options[znak.selectedIndex].value === "/") {
+            rez = parseFloat(ch1.value) / parseFloat(ch2.value);
+        }
+
+        rezul.value = rez;
+
+        // Здесь вы можете выполнить дополнительные действия с полученными значениями, например, отправить их на сервер через AJAX или выполнить другие операции.
+
+        // Вернуться к отправке формы
+        myForm.submit();
+    });
+</script>
+</body>
+</html>

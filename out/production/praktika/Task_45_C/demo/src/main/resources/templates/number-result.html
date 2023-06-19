@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Number Result</title>
+</head>
+<body>
+<h1>Random Number Result</h1>
+
+<h2>Generated Numbers:</h2>
+<ul>
+    <li th:each="number : ${numbers}" th:text="${number}"></li>
+</ul>
+
+<h2>Average:</h2>
+<p th:text="${average}"></p>
+</body>
+</html>
